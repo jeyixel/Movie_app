@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 
+// T generic means the hook can be used with any type of data
+// fetchFunctions is a function that returns a Promise of type T
+// autoFetch is a boolean that determines if the fetch should happen automatically on mount
 const useFetch = <T>(fetchFunctions: () => Promise<T>, autoFetch = true) => {
-    const [data, setData] = useState<T | null>(null);
+    const [data, setData] = useState<T | null>(null); // data can be of any type T or null initially
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
